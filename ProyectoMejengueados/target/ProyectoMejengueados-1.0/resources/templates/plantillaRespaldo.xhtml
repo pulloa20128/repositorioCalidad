@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <title>Mejengueados</title>
+    </h:head>
+
+    <h:body>
+
+        <ui:insert name="top" >
+            <b:navBar fluid="true" brand="Mejengueados"
+                      brandHref="http://localhost:8080/ProyectoMejengueados/faces/indexRespaldo.xhtml">
+                <b:navbarLinks pull="left" >
+                    <b:image library="images" name="soccer-field.png"
+                             style="height: 60px"/>
+                </b:navbarLinks>
+
+                <!--<b:navLink value="Reserva" href="#"/>
+
+                <b:navbarLinks>
+                    <b:dropMenu value="Catálogo" icon-awesome="fa-list-alt">
+                        <b:navLink value="Canchas" icon-awesome="fa-futbol-o"
+                                   href="/ProyectoMejengueados/faces/cancha/list.xhtml"/>
+
+                    </b:dropMenu>
+
+                </b:navbarLinks>-->
+
+                <b:navbarLinks pull="right" style-class="hidden-xs">
+                    <b:dropMenu value="Configuracion" icon-awesome="fa-cog">
+                        <b:navLink></b:navLink>
+                        <h:form style="display: inline" styleClass="form-inline">
+                            <b:selectOneMenu value="#{temaController.tema}" style="width: 180px;margin-top: 8px"
+                                             onchange="$('.theme-selector-button').click()">
+                                <f:selectItem itemValue="default" itemLabel="default"/>
+                                <f:selectItem itemValue="patternfly" itemLabel="patternfly"/>
+                                <f:selectItem itemValue="cerulean" itemLabel=""/>
+                                <f:selectItem itemValue="cosmo" itemLabel=""/>
+                                <f:selectItem itemValue="cyborg" itemLabel=""/>
+                                <f:selectItem itemValue="darkly" itemLabel=""/>
+                                <f:selectItem itemValue="flatly" itemLabel=""/>
+                                <f:selectItem itemValue="journal" itemLabel=""/>
+                                <f:selectItem itemValue="lumen" itemLabel=""/>
+                                <f:selectItem itemValue="paper" itemLabel=""/>
+                                <f:selectItem itemValue="readable" itemLabel=""/>
+                                <f:selectItem itemValue="sandstone" itemLabel=""/>
+                                <f:selectItem itemValue="simplex" itemLabel=""/>
+                                <f:selectItem itemValue="slate" itemLabel=""/>
+                                <f:selectItem itemValue="spacelab" itemLabel=""/>
+                                <f:selectItem itemValue="superhero" itemLabel=""/>
+                                <f:selectItem itemValue="united" itemLabel=""/>
+                                <f:selectItem itemValue="yeti" itemLabel=""/>
+                                <f:selectItem itemValue="freelancer" itemLabel=""/>
+                                <f:selectItem itemValue="grayscale" itemLabel=""/>
+
+                            </b:selectOneMenu>
+                            <b:commandButton class="theme-selector-button" value="select"
+                                             style="display: none"/>
+                        </h:form>
+                        <b:navLink value="Cerrar"
+                                   href="/ProyectoMejengueados/faces/index.xhtml"
+                                   icon-awesome="fa-door-open"/>
+                        <!--<b:navLink value="Perfil" icon-awesome="fa-user" href="#"/>-->
+                        <b:navLink/>
+
+
+                    </b:dropMenu>
+
+                </b:navbarLinks>
+                <b:navbarLinks>
+                    <b:dropMenu value="Usuarios" iconAwesome="fa-group">
+
+                        <b:navLink value="Reportes" href="/ProyectoMejengueados/faces/persona/reporte.xhtml"/>
+
+                        <b:navLink value="Json" href="/ProyectoMejengueados/faces/persona/prospecto_json.xhtml"/>
+                        <b:navLink value= "Respaldo" 
+                                   iconAwesome= "fa-print"
+                                   href= "/ProyectoMejengueados/faces/respaldo/respaldo.xhtml" />
+
+                    </b:dropMenu>
+
+
+                </b:navbarLinks>
+            </b:navBar>
+        </ui:insert>
+
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <a href="http://localhost:8080/ProyectoMejengueados/faces/principalRespaldo.xhtml">Home</a><br/>
+                    <!--<a href="http://localhost:8080/ProyectoMejengueados/faces/cliente1.xhtml">Cliente 1</a><br/>
+                    <a href="http://localhost:8080/ProyectoMejengueados/faces/cliente2.xhtml">Cliente 2</a>-->
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

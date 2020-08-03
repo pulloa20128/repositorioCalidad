@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui" >
+    <h:head>
+        <title>Prospecto Json</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="personaJsonForm">
+                    <b:container fluid="true">
+                        <b:panel title="Prospecto" look="primary">
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <h:outputLabel value="Cedula" for="cedula"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="100010001"
+                                                 id="cedula" value="#{personaController.cedula}">
+                                    </b:inputText>
+                                </b:column>
+                                <b:column medium-screen="1" >
+                                    <b:commandButton value="Buscar" icon="search" look="success"
+                                                     onclick="ajax:personaControler.recupera(personaController.cedula)"
+                                                     update="@form"/>                                    
+                                </b:column>
+                                <b:column medium-screen="4" style-class="message">
+                                    <b:message for="identificacion"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                    <b:container fluid="true">
+                        <b:panelGrid colSpans="6,6" size="sm">                            
+                            <b:panel title="Objeto prospecto" look="primary">
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <h:outputText value="Nombre:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText placeholder="Nombre" id="nombre" 
+                                                     value="#{personaController.nombre}" />
+                                    </b:column>
+                                    <b:column small-screen="3"> 
+                                        <b:commandButton value="Pasar a Json"
+                                                         onclick="ajax:personaController.creaJson()"
+                                                         update="@form"
+                                                         look="danger" icon="pi pi-check" />
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <h:outputText value="Primer apellido:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText placeholder="Apellido1" id="apellido1" 
+                                                     value="#{personaController.apellido1}" />
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <h:outputText value="Segundo apellido:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText placeholder="Apellido2" id="apellido2" 
+                                                     value="#{personaController.apellido2}" />
+                                    </b:column>
+                                </b:row>                                
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <h:outputText value="F.Nacimiento:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:datepicker id="fechaNaci"                                                  
+                                                      value="#{personaController.fechaNacimiento}" />
+                                    </b:column>
+                                </b:row>                                
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <h:outputText value="Correo:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText placeholder="correo@algo.com" id="correo" 
+                                                     value="#{personaController.correo}" />
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <h:outputText value="Celular:" />
+                                    </b:column>
+                                    <b:column medium-screen="4">
+                                        <b:inputText placeholder="88888888" id="celular" 
+                                                     value="#{personaController.celular}" />
+                                    </b:column>
+                                </b:row>    
+                            </b:panel>
+                            <b:panel title="Json" look="primary">
+                                <b:row>
+                                    <b:column small-screen="2"> 
+                                        <b:commandButton value="Pasar a Objeto"
+                                                         onclick="ajax:personaController.creaObjectProspecto()"
+                                                         update="@form"
+                                                         look="danger"
+                                                         icon="pi pi-check" />
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column medium-screen="12"> 
+                                        <b:inputTextarea rows="9" value="#{personaController.tiraJson}" />
+                                    </b:column>
+                                </b:row>                                
+                            </b:panel>
+                        </b:panelGrid>
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

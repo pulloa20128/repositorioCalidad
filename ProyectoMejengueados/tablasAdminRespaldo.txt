@@ -1,0 +1,17 @@
+create table usuarioAdmin (
+ idAdmin varchar (10) primary key not null,
+ pwAdmin varchar(10) not null,
+ nombreAdmin varchar (30) not null
+);
+
+create table usuarioRespaldo (
+ idRespaldo varchar (10) primary key not null,
+ pwRespaldo varchar(10) not null,
+ nombreRespaldo varchar (30) not null
+);
+
+insert into usuarioAdmin values ('admin','admin','Administrador');
+insert into usuarioRespaldo values ('respaldo','respaldo','Usuario de Respaldo');
+
+insert into usuarioAdmin values ('admin1','456','Administrador1');
+insert into usuarioRespaldo values ('respaldo1','654','Usuario de Respaldo 1');
